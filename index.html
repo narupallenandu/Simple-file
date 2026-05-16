@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nandini Cute Mini Project</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffb6d9, #ff69b4, #ffc0cb);
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      animation: float 3s ease-in-out infinite;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: #ff4f81;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 20px;
+      background: #ff4f81;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff2f68;
+      transform: scale(1.05);
+    }
+
+    .heart {
+      position: absolute;
+      color: pink;
+      font-size: 20px;
+      animation: rise 5s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-800px) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>✨ Nannuu ✨</h1>
+    <p>You are creative, amazing, and unique 💖</p>
+    <button onclick="showMessage()">Click Me</button>
+  </div>
+
+  <script>
+    function showMessage() {
+      alert('Hello Nannuu 🌸 Keep shining and keep building awesome projects!');
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.top = window.innerHeight + 'px';
+      heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>
